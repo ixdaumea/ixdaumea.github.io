@@ -1,0 +1,97 @@
+/* line 3, ../scss/app.scss */
+body {
+  background-color: #FEFEFE;
+  color: #515E66;
+}
+
+/* line 8, ../scss/app.scss */
+.section {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* line 15, ../scss/app.scss */
+h3 {
+  font-weight: bold;
+  color: #515E66;
+  margin-bottom: 20px;
+}
+
+/* line 24, ../scss/app.scss */
+button.ixda {
+  background-color: #55C4C4;
+  font-weight: bold;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 35, ../scss/app.scss */
+.centered {
+  text-align: center;
+}
+
+/* line 40, ../scss/app.scss */
+#logo {
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  width: 136px;
+  height: 136px;
+  background: url("../images/ixda_umea_logo_square@2x.png");
+  background-size: 136px 136px;
+}
+@media (min-width: 600px) {
+  /* line 40, ../scss/app.scss */
+  #logo {
+    width: 340px;
+    height: 136px;
+    background: url("../images/ixda_umea_logo@2x.png");
+    background-size: 340px 136px;
+  }
+}
+
+/* line 61, ../scss/app.scss */
+#header {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-color: #000000;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4)), url("../images/umea_3.jpg") no-repeat center center;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  -o-background-size: auto 100%;
+  background-size: auto 100%;
+}
+
+/* line 73, ../scss/app.scss */
+#about {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* line 82, ../scss/app.scss */
+#events#meetup-widget {
+  width: 100%;
+  height: 100px;
+  background-color: #000000;
+}
+
+/* line 94, ../scss/app.scss */
+#contact {
+  background-color: #515E66;
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 98, ../scss/app.scss */
+#contact h3 {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 104, ../scss/app.scss */
+#contact a {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 108, ../scss/app.scss */
+#contact a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
