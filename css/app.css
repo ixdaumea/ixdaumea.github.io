@@ -49,18 +49,24 @@ body {
 }
 
 /* line 67, ../scss/app.scss */
+a {
+  color: #515e66;
+}
+
+/* line 72, ../scss/app.scss */
 h3 {
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
   color: #515e66;
   margin-bottom: 20px;
 }
 
-/* line 74, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
 h4 {
   margin-bottom: 20px;
 }
 
-/* line 81, ../scss/app.scss */
+/* line 87, ../scss/app.scss */
 button.ixda {
   background-color: #55c4c4;
   font-weight: bold;
@@ -69,12 +75,31 @@ button.ixda {
   border-radius: 4px;
 }
 
-/* line 92, ../scss/app.scss */
+/* line 98, ../scss/app.scss */
 .centered {
   text-align: center;
 }
 
-/* line 97, ../scss/app.scss */
+/* line 103, ../scss/app.scss */
+.blurrybackground {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #000000;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/umea_4.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* line 123, ../scss/app.scss */
 #logo {
   background-repeat: no-repeat;
   margin-left: auto;
@@ -86,7 +111,7 @@ button.ixda {
   background-size: 136px 136px;
 }
 @media (min-width: 600px) {
-  /* line 97, ../scss/app.scss */
+  /* line 123, ../scss/app.scss */
   #logo {
     width: 340px;
     height: 136px;
@@ -95,8 +120,9 @@ button.ixda {
   }
 }
 
-/* line 119, ../scss/app.scss */
+/* line 145, ../scss/app.scss */
 #header {
+  position: relative;
   padding-top: 160px;
   padding-bottom: 160px;
   background-color: #000000;
@@ -105,44 +131,44 @@ button.ixda {
   background-position: center center;
 }
 
-/* line 129, ../scss/app.scss */
+/* line 157, ../scss/app.scss */
 #about {
   padding-top: 120px;
   padding-bottom: 120px;
 }
 
-/* line 135, ../scss/app.scss */
+/* line 163, ../scss/app.scss */
 #events {
   padding-top: 120px;
   padding-bottom: 120px;
 }
-/* line 140, ../scss/app.scss */
+/* line 168, ../scss/app.scss */
 #events#meetup-widget {
   width: 100%;
   height: 100px;
   background-color: #000000;
 }
 
-/* line 147, ../scss/app.scss */
+/* line 175, ../scss/app.scss */
 #ideas {
   background-color: white;
 }
 
-/* line 152, ../scss/app.scss */
+/* line 180, ../scss/app.scss */
 #contact {
   background-color: #515e66;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 156, ../scss/app.scss */
+/* line 184, ../scss/app.scss */
 #contact h3 {
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 162, ../scss/app.scss */
+/* line 190, ../scss/app.scss */
 #contact a {
   font-weight: bold;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 166, ../scss/app.scss */
+/* line 194, ../scss/app.scss */
 #contact a:hover {
   color: rgba(255, 255, 255, 0.8);
 }

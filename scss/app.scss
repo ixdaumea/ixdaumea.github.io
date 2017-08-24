@@ -64,9 +64,15 @@ p
 	// font-size:18px;
 }
 
+a
+{
+	color:$nevada;
+}
+
 h3
 {
-	font-weight:bold;
+	font-size: 20px;
+	font-weight:700;
 	color:$nevada;
 	margin-bottom:20px;
 }
@@ -94,6 +100,26 @@ button
 	text-align:center;
 }
 
+.blurrybackground
+{
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+
+	background-color:#000000;
+	background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/umea_4.jpg') no-repeat center center;
+	background-size: cover;
+	background-position: center center;
+}
+
 #logo
 {
 	background-repeat:no-repeat;
@@ -118,8 +144,10 @@ button
 
 #header
 {
+	position:relative;
 	padding-top: 160px;
 	padding-bottom: 160px;
+
 	background-color:#000000;
 	background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/umea_4.jpg') no-repeat center center;
 	background-size: cover;
