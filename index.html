@@ -7,6 +7,127 @@
     <title>IxDA Umeå</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script src="local.js"></script>
+    <script src="api_key.js"></script>
+    <script id="config" type="text/javascript" charset="utf-8">
+      var $parameters = {
+        urlname: "UX-Umea-Meetup",
+      };
+      var $queries = {
+        groups: function() {
+          return mup_widget.api_call("/2/groups", {group_urlname: $parameters.urlname});
+        },
+        events: function() {
+          return mup_widget.api_call("/2/events", {group_urlname: $parameters.urlname, page: '1'});
+        }
+      };
+
+    </script>
+    <script type="text/javascript" charset="utf-8">
+      mup_widget.with_jquery(function($, ctx) {
+        var group = '',
+            months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+            addLink = function(content, link) {
+                return '<a target="_top" href="' + link + '">' + content + '</a>';
+            },
+            addLeadingZero = function( num ) {
+                return (num < 10) ? ('0' + num) : num;
+              },
+            getFormattedDate = function( millis ) {
+                var date = new Date( millis );
+                return  months[date.getMonth()] + ' ' + addLeadingZero( date.getDate() ) + ', ' + date.getFullYear().toString();
+              },
+            getFormattedTime = function( millis ) {
+                var time = new Date( millis ),
+                    hours = time.getHours(),
+                    min = time.getMinutes(),
+                    ampm = (hours > 11) ? 'PM' : 'AM';
+                min = (min < 10) ? ('0' + min) : min;
+                hours = (hours == 0) ? 1 : hours;
+                hours = (hours > 12) ? hours-12 : hours;
+                return hours + ':' + min + ' ' + ampm;
+              },
+            numberFormat = function(nStr){
+                nStr += '';
+                x = nStr.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1))
+                  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                return x1 + x2;
+              };
+
+        $.getJSON($queries.groups(), function(data) {
+          if (data.results.length == 0) {
+            $('.mug-badge', ctx).append(
+              '<div class="mup-widget error">\
+                  <div class="errorMsg">Oops. No results for "' + $parameters.urlname + '"</div>\
+              </div>');
+          }
+          else {
+          group = data.results[0];
+          $('.mug-badge', ctx).append(
+            '<div class="mup-widget">\
+              <div class="mup-bd">\
+                <span class="mup-stats"><div class="next-event"></div></span>\
+              </div>\
+            </div>'
+            );
+          
+            $.getJSON($queries.events(), function(data) {
+              if (data.status && data.status.match(/^200/) == null) {
+                alert(data.status + ": " + data.details);
+              } else {
+                  if (data.results.length == 0) {
+                     $('.next-event', ctx).append('<span class="mup-tlabel">No upcoming event planned.<br>Join the Meetup group to get notifed.' + group.link + '</span>');
+                  } else {
+                        var event = data.results[0];
+         console.log(event);
+                        var venue = event.venue;
+         console.log(venue);
+                        var city;
+                        if (!venue || !venue.city) {
+                            city = group.city;
+                        } else {
+                            city = venue.city;
+                        }
+                        var state_country;
+                        if (!venue || !venue.state) {
+                            if (group.state == "") {
+                                state_country = group.country.toUpperCase();
+                            } else {
+                                state_country = group.state;
+                            }
+                        } else {
+                            state_country = venue.state;
+                        }
+                        var venue_addr;
+                        if (venue) {
+                            if (venue.name !== undefined) {
+                                venue_addr = venue.name  + ", ";
+                            }
+                            if (venue.address_1 !== undefined) {
+                                venue_addr = venue_addr + venue.address_1 + ", ";
+                            }
+                        } 
+                        else {
+                           venue_addr = "";
+                        }
+                        var location = venue_addr + city;
+                        $('.next-event', ctx).append('<div class="event-container"></div>');
+                        $('.event-container', ctx).append('<div class="event-body"><span class="event-date-label">'+getFormattedDate(event.time) + ' &nbsp | &nbsp ' + getFormattedTime(event.time) + "</div><div class=''>" + addLink(event.name, event.event_url)+'</div><div class="event-title">' + location + '</div></div>');
+                        $('.event-container', ctx).append('<div class="event-attending"><div class="event-going-number-label">' + event.yes_rsvp_count + '</div><div class="event-going-label">going</div></div>');
+                    }
+                }
+                });
+          }
+        });
+        
+      });
+    </script>
   </head>
   <body>
     <div id="header" class="section">    
@@ -23,7 +144,6 @@
       <div class="grid-container centered">
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
-            <h3>ABOUT</h3>
             <p>IxDA Umeå is a local meetup group of the Interaction Design Association. We welcome anyone interested in discussing and learning more about the user experience of digital and physical products and services.</p>
             <p>Since its launch in 2003, IxDA has grown into a global network of more than 80,000 members and over 173 local groups. Visit <b><a target="_blank" href="http://www.ixda.org">www.ixda.org</a></b> to learn more.</p>
           </div>
@@ -37,8 +157,10 @@
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
             <h3>UPCOMING EVENTS</h3>
             <p>Each month we get together at a different location to discuss interesting topics presented by members, interesting companies and invited speakers.</p>
-            <div id="meetup-widget" class="centered"></div>
-            <a href="https://www.meetup.com/UX-Umea-Meetup/" target="_blank"><button type="button large" class="ixda button">Join the Meetup group</button></a>
+            <div id="meetup-widget" class="centered">
+              <div class="mug-badge"></div>
+            </div>
+            <a href="https://www.meetup.com/UX-Umea-Meetup/" target="_blank"><button type="button large" class="ixda button">Join the group</button></a>
             <!-- <p>Don't forget to follow <a href="http://www.instagram.com/ixdaumea">@ixdaumea</a> on Instagram and tag your photos with <b>#ixda</b> <b>#ixdaumea</b>.</p> -->
           </div>
         </div>         
@@ -50,7 +172,7 @@
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
             <h3>GOT AN IDEA?</h3>
-            <p>Do you have a topic you wish to speak about or interested in hosting an IxDA Meetup at your company? Great! Send us an email and let's take it from there.</p>
+            <p>Do you have a topic you wish to speak about or are your company interested in hosting a meetup? Great! Send us an email and let's take it from there.</p>
             <a href="mailto:umea@ixda.org"><button type="button large" class="ixda button">I have an idea</button></a>
           </div>
         </div>         
@@ -68,159 +190,6 @@
         </div>         
       </div>
     </div>
-
-<!--     <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1>Welcome to Foundation</h1>
-        </div>
-      </div>
-
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <div class="callout">
-            <h3>We&rsquo;re stoked you want to try Foundation! </h3>
-            <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-            <p>Once you've exhausted the fun in this document, you should check out:</p>
-            <div class="grid-x grid-padding-x">
-              <div class="large-4 medium-4 cell">
-                <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
-              </div>
-              <div class="large-4 medium-4 cell">
-                <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br />These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
-              </div>
-              <div class="large-4 medium-4 cell">
-                <p><a href="http://foundation.zurb.com/forum">Foundation Forum</a><br />Join the Foundation community to ask a question or show off your knowlege.</p>
-              </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-              <div class="large-4 medium-4 medium-push-2 cell">
-                <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-              </div>
-              <div class="large-4 medium-4 medium-pull-2 cell">
-                <p><a href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-x grid-padding-x">
-        <div class="large-8 medium-8 cell">
-          <h5>Here&rsquo;s your basic grid:</h5>
-
-          <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-              <div class="primary callout">
-                <p><strong>This is a twelve cell section in a grid-x.</strong> Each of these includes a div.callout element so you can see where the cell are - it's not required at all for the grid.</p>
-              </div>
-            </div>
-          </div>
-          <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-              <div class="primary callout">
-                <p>Six cell</p>
-              </div>
-            </div>
-            <div class="large-6 medium-6 cell">
-              <div class="primary callout">
-                <p>Six cell</p>
-              </div>
-            </div>
-          </div>
-          <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 small-4 cell">
-              <div class="primary callout">
-                <p>Four cell</p>
-              </div>
-            </div>
-            <div class="large-4 medium-4 small-4 cell">
-              <div class="primary callout">
-                <p>Four cell</p>
-              </div>
-            </div>
-            <div class="large-4 medium-4 small-4 cell">
-              <div class="primary callout">
-                <p>Four cell</p>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <h5>We bet you&rsquo;ll need a form somewhere:</h5>
-          <form>
-            <div class="grid-x grid-padding-x">
-              <div class="large-12 cell">
-                <label>Input Label</label>
-                <input type="text" placeholder="large-12.cell" />
-              </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-              <div class="large-4 medium-4 cell">
-                <label>Input Label</label>
-                <input type="text" placeholder="large-4.cell" />
-              </div>
-              <div class="large-4 medium-4 cell">
-                <label>Input Label</label>
-                <input type="text" placeholder="large-4.cell" />
-              </div>
-              <div class="large-4 medium-4 cell">
-                <div class="grid-x">
-                  <label>Input Label</label>
-                  <div class="input-group">
-                    <input type="text" placeholder="small-9.cell" class="input-group-field" />
-                    <span class="input-group-label">.com</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-              <div class="large-12 cell">
-                <label>Select Box</label>
-                <select>
-                  <option value="husker">Husker</option>
-                  <option value="starbuck">Starbuck</option>
-                  <option value="hotdog">Hot Dog</option>
-                  <option value="apollo">Apollo</option>
-                </select>
-              </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-              <div class="large-6 medium-6 cell">
-                <label>Choose Your Favorite</label>
-                <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
-                <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
-              </div>
-              <div class="large-6 medium-6 cell">
-                <label>Check these out</label>
-                <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-                <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-              </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-              <div class="large-12 cell">
-                <label>Textarea Label</label>
-                <textarea placeholder="small-12.cell"></textarea>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <div class="large-4 medium-4 cell">
-          <h5>Try one of these buttons:</h5>
-          <p><a href="#" class="button">Simple Button</a><br/>
-          <a href="#" class="success button">Success Btn</a><br/>
-          <a href="#" class="alert button">Alert Btn</a><br/>
-          <a href="#" class="secondary button">Secondary Btn</a></p>
-          <div class="callout">
-            <h5>So many components, girl!</h5>
-            <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>
-            <a href="http://foundation.zurb.com/sites/docs/" class="small button">Go to Foundation Docs</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

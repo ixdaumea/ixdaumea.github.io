@@ -44,8 +44,8 @@ body {
 /* line 55, ../scss/app.scss */
 .section {
   width: 100%;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 /* line 67, ../scss/app.scss */
@@ -55,7 +55,7 @@ a {
 
 /* line 72, ../scss/app.scss */
 h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #515e66;
   margin-bottom: 20px;
@@ -133,42 +133,91 @@ button.ixda {
 
 /* line 157, ../scss/app.scss */
 #about {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  font-weight: 400;
+  color: white;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  background-color: #55c4c4;
+}
+/* line 165, ../scss/app.scss */
+#about a {
+  color: white;
 }
 
-/* line 163, ../scss/app.scss */
-#events {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-/* line 168, ../scss/app.scss */
+/* line 172, ../scss/app.scss */
 #events#meetup-widget {
   width: 100%;
   height: 100px;
   background-color: #000000;
 }
 
-/* line 175, ../scss/app.scss */
+/* line 179, ../scss/app.scss */
 #ideas {
   background-color: white;
 }
 
-/* line 180, ../scss/app.scss */
+/* line 184, ../scss/app.scss */
 #contact {
   background-color: #515e66;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 184, ../scss/app.scss */
+/* line 188, ../scss/app.scss */
 #contact h3 {
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 190, ../scss/app.scss */
+/* line 194, ../scss/app.scss */
 #contact a {
   font-weight: bold;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 194, ../scss/app.scss */
+/* line 198, ../scss/app.scss */
 #contact a:hover {
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* line 206, ../scss/app.scss */
+.event-container {
+  padding: 30px;
+  background-color: #dededd;
+  position: relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* line 222, ../scss/app.scss */
+.event-body {
+  background-color: #55c4c4;
+  text-align: left;
+  float: left;
+  display: block;
+}
+
+/* line 245, ../scss/app.scss */
+.event-attending {
+  height: 100%;
+  padding: 10 10 10 20;
+  float: right;
+  text-align: center;
+  background-color: #515e66;
+  color: white;
+}
+/* line 254, ../scss/app.scss */
+.event-attending .event-going-number-label {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-bottom: -10px;
+  margin-right: 10px;
+  padding-bottom: 0px;
+}
+/* line 265, ../scss/app.scss */
+.event-attending .event-going-label {
+  margin-top: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
