@@ -1,8 +1,55 @@
 @import "settings";
+// @import url('https://rsms.me/interface/interface.css');
+
+@font-face {
+  font-family: 'Interface';
+  font-style:  normal;
+  font-weight: 400;
+  src: url("https://rsms.me/interface/font-files/Interface-Regular.woff2?v=1.1") format("woff2"),
+       url("https://rsms.me/interface/font-files/Interface-Regular.woff?v=1.1") format("woff");
+}
+@font-face {
+  font-family: 'Interface';
+  font-style:  italic;
+  font-weight: 400;
+  src: url("https://rsms.me/interface/font-files/Interface-RegularItalic.woff2?v=1.1") format("woff2"),
+       url("https://rsms.me/interface/font-files/Interface-RegularItalic.woff?v=1.1") format("woff");
+}
+
+@font-face {
+  font-family: 'Interface';
+  font-style:  normal;
+  font-weight: 500;
+  src: url("https://rsms.me/interface/font-files/Interface-Medium.woff2?v=1.1") format("woff2"),
+       url("https://rsms.me/interface/font-files/Interface-Medium.woff?v=1.1") format("woff");
+}
+@font-face {
+  font-family: 'Interface';
+  font-style:  italic;
+  font-weight: 500;
+  src: url("https://rsms.me/interface/font-files/Interface-MediumItalic.woff2?v=1.1") format("woff2"),
+       url("https://rsms.me/interface/font-files/Interface-MediumItalic.woff?v=1.1") format("woff");
+}
+
+@font-face {
+  font-family: 'Interface';
+  font-style:  normal;
+  font-weight: 700;
+  src: url("https://rsms.me/interface/font-files/Interface-Bold.woff2?v=1.1") format("woff2"),
+       url("https://rsms.me/interface/font-files/Interface-Bold.woff?v=1.1") format("woff");
+}
+@font-face {
+  font-family: 'Interface';
+  font-style:  italic;
+  font-weight: 700;
+  src: url("https://rsms.me/interface/font-files/Interface-BoldItalic.woff2?v=1.1") format("woff2"),
+       url("https://rsms.me/interface/font-files/Interface-BoldItalic.woff?v=1.1") format("woff");
+}
 
 body{
-	background-color:#FEFEFE;
-	color:$ixda_blue;
+	background-color:$white;
+	color:$nevada;
+	font-family: Interface, sans-serif;
 }
 
 .section
@@ -12,10 +59,20 @@ body{
 	padding-bottom: 80px;
 }
 
+p
+{
+	// font-size:18px;
+}
+
 h3
 {
 	font-weight:bold;
-	color:$ixda_blue;
+	color:$nevada;
+	margin-bottom:20px;
+}
+
+h4
+{
 	margin-bottom:20px;
 }
 
@@ -23,7 +80,7 @@ button
 {
 	&.ixda
 	{
-		background-color:$ixda_turquoise;
+		background-color:$ixda-green;
 		font-weight: bold;
 
 		-webkit-border-radius: 4px;
@@ -77,6 +134,8 @@ button
 
 #events
 {
+	padding-top: 120px;
+	padding-bottom: 120px;	
 
 	&#meetup-widget{
 		width: 100%;
@@ -87,12 +146,12 @@ button
 
 #ideas
 {
-
+	background-color:$white;
 }
 
 #contact
 {
-	background-color:$ixda_blue;
+	background-color:$nevada;
 
 	h3{
 		color:rgba(255, 255, 255, 0.5);
