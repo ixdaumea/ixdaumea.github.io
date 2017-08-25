@@ -80,11 +80,24 @@ button.ixda {
 }
 
 /* line 104, ../scss/app.scss */
+.event-photo {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+/* line 121, ../scss/app.scss */
 .centered {
   text-align: center;
 }
 
-/* line 109, ../scss/app.scss */
+/* line 126, ../scss/app.scss */
 .blurrybackground {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
@@ -103,14 +116,14 @@ button.ixda {
   background-position: center center;
 }
 
-/* line 129, ../scss/app.scss */
+/* line 146, ../scss/app.scss */
 .section {
   width: 100%;
   padding-top: 90px;
   padding-bottom: 90px;
 }
 
-/* line 136, ../scss/app.scss */
+/* line 153, ../scss/app.scss */
 #logo {
   background-repeat: no-repeat;
   margin-left: auto;
@@ -122,7 +135,7 @@ button.ixda {
   background-size: 136px 136px;
 }
 @media (min-width: 600px) {
-  /* line 136, ../scss/app.scss */
+  /* line 153, ../scss/app.scss */
   #logo {
     width: 340px;
     height: 136px;
@@ -131,7 +144,7 @@ button.ixda {
   }
 }
 
-/* line 158, ../scss/app.scss */
+/* line 175, ../scss/app.scss */
 #header {
   position: relative;
   padding-top: 160px;
@@ -142,47 +155,47 @@ button.ixda {
   background-position: center center;
 }
 
-/* line 170, ../scss/app.scss */
+/* line 187, ../scss/app.scss */
 #about {
   font-weight: 500;
   color: white;
   background-color: #55c4c4;
 }
-/* line 176, ../scss/app.scss */
+/* line 193, ../scss/app.scss */
 #about a {
   color: white;
 }
 
-/* line 181, ../scss/app.scss */
+/* line 198, ../scss/app.scss */
 #events {
   background-color: #fafafa;
 }
 
-/* line 186, ../scss/app.scss */
+/* line 203, ../scss/app.scss */
 #ideas {
   background-color: white;
 }
 
-/* line 191, ../scss/app.scss */
+/* line 208, ../scss/app.scss */
 #contact {
   background-color: #515e66;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 195, ../scss/app.scss */
+/* line 212, ../scss/app.scss */
 #contact h3 {
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 201, ../scss/app.scss */
+/* line 218, ../scss/app.scss */
 #contact a {
   font-weight: bold;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 205, ../scss/app.scss */
+/* line 222, ../scss/app.scss */
 #contact a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* line 213, ../scss/app.scss */
+/* line 230, ../scss/app.scss */
 .next-event {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -193,7 +206,7 @@ button.ixda {
   margin-bottom: 30px;
 }
 
-/* line 224, ../scss/app.scss */
+/* line 241, ../scss/app.scss */
 .event-container {
   display: table;
   height: 100%;
@@ -203,33 +216,33 @@ button.ixda {
   position: relative;
 }
 
-/* line 234, ../scss/app.scss */
+/* line 251, ../scss/app.scss */
 .event-body {
   display: table-cell;
   background-color: white;
   text-align: left;
   padding: 30px;
 }
-/* line 241, ../scss/app.scss */
+/* line 258, ../scss/app.scss */
 .event-body .event-date-label {
   font-weight: 700;
   display: block;
   margin-bottom: 10px;
 }
-/* line 248, ../scss/app.scss */
+/* line 265, ../scss/app.scss */
 .event-body .event-title-label {
   font-weight: 700;
   font-size: 34px;
   display: block;
   line-height: 1.0;
 }
-/* line 256, ../scss/app.scss */
+/* line 273, ../scss/app.scss */
 .event-body .event-location-label {
   margin-top: 15px;
   display: block;
 }
 
-/* line 263, ../scss/app.scss */
+/* line 280, ../scss/app.scss */
 .event-attending {
   display: table-cell;
   min-width: 120px;
@@ -238,19 +251,19 @@ button.ixda {
   color: white;
   height: 100%;
 }
-/* line 272, ../scss/app.scss */
+/* line 289, ../scss/app.scss */
 .event-attending .event-attending-inner {
   height: 100%;
   border: 2px solid #515e66;
   -moz-box-sizing: border-box;
 }
-/* line 279, ../scss/app.scss */
+/* line 296, ../scss/app.scss */
 .event-attending .event-attending-inner-container {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 286, ../scss/app.scss */
+/* line 303, ../scss/app.scss */
 .event-attending .event-going-number-label {
   font-size: 44px;
   font-weight: 700;
@@ -258,7 +271,7 @@ button.ixda {
   margin-bottom: -10px;
   padding-bottom: 0px;
 }
-/* line 295, ../scss/app.scss */
+/* line 312, ../scss/app.scss */
 .event-attending .event-going-label {
   margin-top: 0px;
   font-size: 14px;
