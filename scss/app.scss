@@ -113,11 +113,17 @@ button
 
 	width:100%;
 
-	-webkit-border-radius: 200px;
-	-moz-border-radius: 200px;
-	border-radius: 200px;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
 
 	overflow:hidden;
+
+	@media (min-width: $medium) {
+		-webkit-border-radius: 200px;
+		-moz-border-radius: 200px;
+		border-radius: 200px;
+	}
 }
 
 .centered
