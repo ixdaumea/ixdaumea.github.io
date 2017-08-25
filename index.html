@@ -70,9 +70,7 @@
           else {
           group = data.results[0];
           $('.mug-badge', ctx).append(
-            '<div class="mup-widget">\
-                <div class="next-event"></div>\
-            </div>'
+            '<div class="mup-widget"></div>'
             );
           
             $.getJSON($queries.events(), function(data) {
@@ -80,8 +78,13 @@
                 alert(data.status + ": " + data.details);
               } else {
                   if (data.results.length == 0) {
-                     $('.next-event', ctx).append('<span class="mup-tlabel">No upcoming event planned.<br>Join the Meetup group to get notifed.' + group.link + '</span>');
+                     $('.mup-widget', ctx).append('<div class="no-event-label">No upcoming events.<br>Join the group to get notifed.</div>');
                   } else {
+
+                        $('.mup-widget', ctx).append(
+                          '<div class="next-event"></div>'
+                        );
+
                         var event = data.results[0];
          console.log(event);
                         var venue = event.venue;

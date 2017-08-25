@@ -211,6 +211,7 @@ button
 
 	a{
 		color: $white;
+		text-decoration: underline;
 	}
 }
 
@@ -245,6 +246,12 @@ button
 }
 
 // EVENTS
+
+.no-event-label
+{
+	font-weight:500;
+	margin-bottom:15px;
+}
 
 .next-event
 {
@@ -309,7 +316,7 @@ button
 	display: table-cell;
 	min-width:100px;
 	text-align:center;
-	background-color:$nevada;
+	background-color:$meetup-red;
 	color:$white;
 	height:100%;
 
@@ -321,7 +328,7 @@ button
 	.event-attending-inner
 	{
 	    height: 100%;
-	    border: 2px solid $nevada;
+	    border: 2px solid $meetup-red;
 	    -moz-box-sizing: border-box;
 	}
 
