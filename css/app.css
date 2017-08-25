@@ -41,19 +41,12 @@ body {
   font-family: Interface, sans-serif;
 }
 
-/* line 55, ../scss/app.scss */
-.section {
-  width: 100%;
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-/* line 67, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 a {
   color: #515e66;
 }
 
-/* line 72, ../scss/app.scss */
+/* line 65, ../scss/app.scss */
 h3 {
   font-size: 18px;
   font-weight: 700;
@@ -61,26 +54,27 @@ h3 {
   margin-bottom: 20px;
 }
 
-/* line 80, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
 h4 {
   margin-bottom: 20px;
 }
 
-/* line 87, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
 button.ixda {
   background-color: #55c4c4;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 16px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
 
-/* line 98, ../scss/app.scss */
+/* line 92, ../scss/app.scss */
 .centered {
   text-align: center;
 }
 
-/* line 103, ../scss/app.scss */
+/* line 97, ../scss/app.scss */
 .blurrybackground {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
@@ -99,7 +93,14 @@ button.ixda {
   background-position: center center;
 }
 
-/* line 123, ../scss/app.scss */
+/* line 117, ../scss/app.scss */
+.section {
+  width: 100%;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* line 124, ../scss/app.scss */
 #logo {
   background-repeat: no-repeat;
   margin-left: auto;
@@ -111,7 +112,7 @@ button.ixda {
   background-size: 136px 136px;
 }
 @media (min-width: 600px) {
-  /* line 123, ../scss/app.scss */
+  /* line 124, ../scss/app.scss */
   #logo {
     width: 340px;
     height: 136px;
@@ -120,7 +121,7 @@ button.ixda {
   }
 }
 
-/* line 145, ../scss/app.scss */
+/* line 146, ../scss/app.scss */
 #header {
   position: relative;
   padding-top: 160px;
@@ -131,93 +132,126 @@ button.ixda {
   background-position: center center;
 }
 
-/* line 157, ../scss/app.scss */
+/* line 158, ../scss/app.scss */
 #about {
-  font-weight: 400;
+  font-weight: 500;
   color: white;
-  padding-top: 60px;
-  padding-bottom: 50px;
   background-color: #55c4c4;
 }
-/* line 165, ../scss/app.scss */
+/* line 164, ../scss/app.scss */
 #about a {
   color: white;
 }
 
-/* line 172, ../scss/app.scss */
-#events#meetup-widget {
-  width: 100%;
-  height: 100px;
-  background-color: #000000;
+/* line 169, ../scss/app.scss */
+#events {
+  background-color: #fafafa;
 }
 
-/* line 179, ../scss/app.scss */
+/* line 174, ../scss/app.scss */
 #ideas {
   background-color: white;
 }
 
-/* line 184, ../scss/app.scss */
+/* line 179, ../scss/app.scss */
 #contact {
   background-color: #515e66;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 188, ../scss/app.scss */
+/* line 183, ../scss/app.scss */
 #contact h3 {
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 194, ../scss/app.scss */
+/* line 189, ../scss/app.scss */
 #contact a {
   font-weight: bold;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 198, ../scss/app.scss */
+/* line 193, ../scss/app.scss */
 #contact a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* line 206, ../scss/app.scss */
-.event-container {
-  padding: 30px;
-  background-color: #dededd;
-  position: relative;
+/* line 201, ../scss/app.scss */
+.next-event {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  border: 1px solid #F5F5F5;
+  overflow: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-/* line 222, ../scss/app.scss */
+/* line 215, ../scss/app.scss */
+.event-container {
+  display: table;
+  height: 100%;
+  min-height: 1px;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+
+/* line 225, ../scss/app.scss */
 .event-body {
-  background-color: #55c4c4;
+  display: table-cell;
+  background-color: white;
   text-align: left;
-  float: left;
+  padding: 30px;
+}
+/* line 232, ../scss/app.scss */
+.event-body .event-date-label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+/* line 239, ../scss/app.scss */
+.event-body .event-title-label {
+  font-weight: 700;
+  font-size: 34px;
+  display: block;
+  line-height: 1.0;
+}
+/* line 247, ../scss/app.scss */
+.event-body .event-location-label {
+  margin-top: 15px;
   display: block;
 }
 
-/* line 245, ../scss/app.scss */
+/* line 254, ../scss/app.scss */
 .event-attending {
-  height: 100%;
-  padding: 10 10 10 20;
-  float: right;
+  display: table-cell;
+  min-width: 120px;
   text-align: center;
   background-color: #515e66;
   color: white;
+  height: 100%;
 }
-/* line 254, ../scss/app.scss */
+/* line 263, ../scss/app.scss */
+.event-attending .event-attending-inner {
+  height: 100%;
+  border: 2px solid #515e66;
+  -moz-box-sizing: border-box;
+}
+/* line 270, ../scss/app.scss */
+.event-attending .event-attending-inner-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* line 277, ../scss/app.scss */
 .event-attending .event-going-number-label {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 700;
   margin-top: 0px;
-  margin-left: 10px;
   margin-bottom: -10px;
-  margin-right: 10px;
   padding-bottom: 0px;
 }
-/* line 265, ../scss/app.scss */
+/* line 286, ../scss/app.scss */
 .event-attending .event-going-label {
   margin-top: 0px;
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }

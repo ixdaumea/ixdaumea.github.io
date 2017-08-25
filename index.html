@@ -71,9 +71,7 @@
           group = data.results[0];
           $('.mug-badge', ctx).append(
             '<div class="mup-widget">\
-              <div class="mup-bd">\
-                <span class="mup-stats"><div class="next-event"></div></span>\
-              </div>\
+                <div class="next-event"></div>\
             </div>'
             );
           
@@ -118,8 +116,8 @@
                         }
                         var location = venue_addr + city;
                         $('.next-event', ctx).append('<div class="event-container"></div>');
-                        $('.event-container', ctx).append('<div class="event-body"><span class="event-date-label">'+getFormattedDate(event.time) + ' &nbsp | &nbsp ' + getFormattedTime(event.time) + "</div><div class=''>" + addLink(event.name, event.event_url)+'</div><div class="event-title">' + location + '</div></div>');
-                        $('.event-container', ctx).append('<div class="event-attending"><div class="event-going-number-label">' + event.yes_rsvp_count + '</div><div class="event-going-label">going</div></div>');
+                        $('.event-container', ctx).append('<div class="event-body"><div class="event-date-label">'+getFormattedDate(event.time) + ' at ' + getFormattedTime(event.time) + '</div><div class="event-title-label">' + addLink(event.name, event.event_url)+'</div><div class="event-location-label">' + location + '</div></div>');
+                        $('.event-container', ctx).append('<div class="event-attending"><div class="event-attending-inner"><div class="event-attending-inner-container"><div class="event-going-number-label">' + event.yes_rsvp_count + '</div><div class="event-going-label">going</div></div></div></div>');
                     }
                 }
                 });
@@ -172,8 +170,8 @@
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
             <h3>GOT AN IDEA?</h3>
-            <p>Do you have a topic you wish to speak about or are your company interested in hosting a meetup? Great! Send us an email and let's take it from there.</p>
-            <a href="mailto:umea@ixda.org"><button type="button large" class="ixda button">I have an idea</button></a>
+            <p>Do you have a topic you wish to speak about or are your company interested in hosting a meetup? Great! Send an email to <a href="mailto:umea@ixda.org">umea@ixda.org</a> and let's take it from there.</p>
+            <a href="mailto:umea@ixda.org"><button type="button large" class="ixda button">Get in touch</button></a>
           </div>
         </div>         
       </div>
@@ -183,9 +181,7 @@
       <div class="grid-container centered">
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
-            <h3>GET IN TOUCH</h3>
-            <p>The best way to get in contact with us is through the official email <a href="mailto:umea@ixda.org">umea@ixda.org</a>.</p>
-
+            <h3>IXDA UMEÅ IS SPONSORED BY</h3>
           </div>
         </div>         
       </div>
