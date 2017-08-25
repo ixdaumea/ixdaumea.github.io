@@ -117,7 +117,7 @@
                         var location = venue_addr + city;
                         $('.next-event', ctx).append('<div class="event-container"></div>');
                         $('.event-container', ctx).append('<div class="event-body"><div class="event-date-label">'+getFormattedDate(event.time) + ' at ' + getFormattedTime(event.time) + '</div><div class="event-title-label">' + addLink(event.name, event.event_url)+'</div><div class="event-location-label">' + location + '</div></div>');
-                        $('.event-container', ctx).append('<div class="event-attending"><div class="event-attending-inner"><div class="event-attending-inner-container"><div class="event-going-number-label">' + event.yes_rsvp_count + '</div><div class="event-going-label">going</div></div></div></div>');
+                        $('.event-container', ctx).append('<div class="event-attending"><div class="event-attending-inner"><div class="event-attending-inner-container"><div class="event-going-number-label">' + event.yes_rsvp_count + '</div><div class="event-going-label">GOING</div></div></div></div>');
                     }
                 }
                 });
@@ -142,6 +142,7 @@
       <div class="grid-container centered">
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
+            <h1>IxDA Umeå</h1>
             <p>IxDA Umeå is a local meetup group of the Interaction Design Association. We welcome anyone interested in discussing and learning more about the user experience of digital and physical products and services.</p>
             <p>Since its launch in 2003, IxDA has grown into a global network of more than 80,000 members and over 173 local groups. Visit <b><a target="_blank" href="http://www.ixda.org">www.ixda.org</a></b> to learn more.</p>
           </div>
@@ -153,12 +154,12 @@
       <div class="grid-container centered">
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
-            <h3>UPCOMING EVENTS</h3>
+            <h3>Events</h3>
             <p>Each month we get together at a different location to discuss interesting topics presented by members, interesting companies and invited speakers.</p>
             <div id="meetup-widget" class="centered">
               <div class="mug-badge"></div>
             </div>
-            <a href="https://www.meetup.com/UX-Umea-Meetup/" target="_blank"><button type="button large" class="ixda button">Join the group</button></a>
+            <a href="https://www.meetup.com/UX-Umea-Meetup/" target="_blank"><button type="button large" class="ixda button">Join our Meetup group</button></a>
             <!-- <p>Don't forget to follow <a href="http://www.instagram.com/ixdaumea">@ixdaumea</a> on Instagram and tag your photos with <b>#ixda</b> <b>#ixdaumea</b>.</p> -->
           </div>
         </div>         
@@ -169,9 +170,9 @@
       <div class="grid-container centered">
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
-            <h3>GOT AN IDEA?</h3>
+            <h3>Got an idea?</h3>
             <p>Do you have a topic you wish to speak about or are your company interested in hosting a meetup? Great! Send an email to <a href="mailto:umea@ixda.org">umea@ixda.org</a> and let's take it from there.</p>
-            <a href="mailto:umea@ixda.org"><button type="button large" class="ixda button">Get in touch</button></a>
+            <a href="mailto:umea@ixda.org"><button type="button large" class="ixda button">Send us an email</button></a>
           </div>
         </div>         
       </div>
@@ -181,7 +182,7 @@
       <div class="grid-container centered">
         <div class="grid-x centered">
           <div class="large-8 large-offset-2 medium-10 medium-offset-1 cell">
-            <h3>PROUDLY SPONSORED BY</h3>
+            <h3>Proudly sponsored by</h3>
           </div>
         </div>         
       </div>
